@@ -1,7 +1,6 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
-
 const share = mf.share;
 
 const sharedMappings = new mf.SharedMappings();
@@ -11,7 +10,7 @@ sharedMappings.register(path.join(__dirname, "../../tsconfig.json"), [
 
 module.exports = {
   output: {
-    uniqueName: "mfe1",
+    uniqueName: "userMfe",
     publicPath: "auto",
   },
   optimization: {
@@ -30,11 +29,19 @@ module.exports = {
       library: { type: "module" },
 
       // For remotes (please adjust)
-      name: "mfe1",
-      filename: "remoteEntry.js", // 2-3K w/ Meta Data
+      name: "user",
+      filename: "remoteEntry.js",
       exposes: {
-        "./Module": "./projects/mfe1/src/app/flights/flights.module.ts",
+        "./Module": "./projects/user-mfe/src/app/user/user.module.ts",
       },
+
+      // For hosts (please adjust)
+      // remotes: {
+      //     "shell": "http://localhost:5000/remoteEntry.js",
+      //     "mfe1": "http://localhost:3000/remoteEntry.js",
+
+      // },
+
       shared: share({
         "@angular/core": {
           singleton: true,
@@ -46,22 +53,20 @@ module.exports = {
           strictVersion: true,
           requiredVersion: "auto",
         },
-        "@angular/router": {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: "auto",
-        },
         "@angular/common/http": {
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
+        "@angular/router": {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: "auto",
+        },
 
-        // Uncomment for sharing lib of an Angular CLI or Nx workspace
         ...sharedMappings.getDescriptors(),
       }),
     }),
-    // Uncomment for sharing lib of an Angular CLI or Nx workspace
     sharedMappings.getPlugin(),
   ],
 };

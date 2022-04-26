@@ -6,31 +6,40 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const URL = 'http://localhost:3000/remoteEntry.js';
 
 export const APP_ROUTES: Routes = [
-    {
-      path: '',
-      component: HomeComponent,
-      pathMatch: 'full'
-    },
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
 
-    // Your route here:
+  // Your route here:
 
-    {
-      path: 'flights',
-      loadChildren: () => loadRemoteModule({
-          type: 'module',
-          remoteEntry: URL,
-          exposedModule: './Module'
-        })
-        .then(m => m.FlightsModule) 
-    },
+  {
+    path: 'flights',
+    loadChildren: () => loadRemoteModule({
+      type: 'module',
+      remoteEntry: URL,
+      exposedModule: './Module'
+    })
+      .then(m => m.FlightsModule)
+  },
+  {
+    path: 'user',
+    loadChildren: () => loadRemoteModule({
+      type: 'module',
+      remoteEntry: 'http://localhost:5200/remoteEntry.js',
+      exposedModule: './UserModule'
+    })
+      .then(m => m.UserModule)
+  },
 
-    {
-      path: '**',
-      component: NotFoundComponent
-    }
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
 
-    // DO NOT insert routes after this one.
-    // { path:'**', ...} needs to be the LAST one.
+  // DO NOT insert routes after this one.
+  // { path:'**', ...} needs to be the LAST one.
 
 ];
 
