@@ -7,12 +7,14 @@ import { FlightsModule } from './flights/flights.module';
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
+
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     FlightsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
   ],
   declarations: [
     HomeComponent,
@@ -20,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [],
   bootstrap: [
-      AppComponent
+    AppComponent
   ]
 })
 export class AppModule { }

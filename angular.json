@@ -26,7 +26,7 @@
               "projects/shell/src/favicon.ico",
               "projects/shell/src/assets"
             ],
-            "styles": ["projects/shell/src/styles.css"],
+            "styles": ["projects/shell/src/styles.scss"],
             "scripts": [],
             "extraWebpackConfig": "projects/shell/webpack.config.js",
             "commonChunk": false
@@ -101,7 +101,7 @@
               "projects/shell/src/favicon.ico",
               "projects/shell/src/assets"
             ],
-            "styles": ["projects/shell/src/styles.css"],
+            "styles": ["projects/shell/src/styles.scss"],
             "scripts": []
           }
         }
@@ -130,7 +130,7 @@
               "projects/mfe1/src/favicon.ico",
               "projects/mfe1/src/assets"
             ],
-            "styles": ["projects/mfe1/src/styles.css"],
+            "styles": ["projects/mfe1/src/styles.scss"],
             "scripts": [],
             "extraWebpackConfig": "projects/mfe1/webpack.config.js",
             "commonChunk": false
@@ -205,7 +205,7 @@
               "projects/mfe1/src/favicon.ico",
               "projects/mfe1/src/assets"
             ],
-            "styles": ["projects/mfe1/src/styles.css"],
+            "styles": ["projects/mfe1/src/styles.scss"],
             "scripts": []
           }
         }

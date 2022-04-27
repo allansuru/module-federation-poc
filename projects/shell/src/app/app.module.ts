@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 
+import { FlexModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -17,7 +20,9 @@ import { SharedLibModule } from 'projects/shared-lib/src/public-api';
     SharedLibModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    FlexModule,
+    MatCardModule
   ],
   declarations: [
     AppComponent,
